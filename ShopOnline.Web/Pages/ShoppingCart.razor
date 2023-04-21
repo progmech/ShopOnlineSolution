@@ -28,8 +28,14 @@ else
                             <span>
                                 Price: <b>@item.Price.ToString("C")</b>
                              </span>
-                        </div>
+                             <div>
+                                <button @onclick="(() => DeleteCartItem_Click(item.Id))"
+                                        class="btn btn-danger sm">
+                                    <i class="fa fa-trash"></i>
+                                </button>
 
+                             </div>
+                        </div>
                     </div>
                 }
             </div>
@@ -42,5 +48,4 @@ else
     {
         <h4>There are currently no items in your shopping cart</h4>
     }
-
 }

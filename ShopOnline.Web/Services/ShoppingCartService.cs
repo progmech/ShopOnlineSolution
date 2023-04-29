@@ -8,9 +8,9 @@ namespace ShopOnline.Web.Services
 {
     public class ShoppingCartService : IShoppingCartService
     {
-        public event Action<int> OnShoppingCartChanged;
-
         private readonly HttpClient httpClient;
+
+        public event Action<int> OnShoppingCartChanged;
 
         public ShoppingCartService(HttpClient httpClient)
         {
@@ -92,7 +92,7 @@ namespace ShopOnline.Web.Services
 
         public void RaiseEventOnShoppingCartChanged(int totalQty)
         {
-            throw new NotImplementedException();
+            OnShoppingCartChanged?.Invoke(totalQty);
         }
 
         public async Task<CartItemDto> UpdateQty(CartItemQtyUpdateDto cartItemQtyUpdateDto)
